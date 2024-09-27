@@ -12,10 +12,13 @@ const ButtonCylinder = () => {
     };
 
     return (
+
         <a.mesh ref={meshRef} scale={props.scale} position={props.position} onClick={handleClick}>
+
             <Cylinder args={[1, 1, 2, 32]} rotation={[0.,0.9,0]}>
                 <meshLambertMaterial color="#6BCAB3"/>
             </Cylinder>
+
             <Plane position={[0, 1.01, 0]} args={[2, 2]} rotation={[-Math.PI / 2, 0, 0]}> {/* Aumenta el tamaño del plano */}
                 <meshBasicMaterial map={powerSymbolTexture} transparent />
             </Plane>
