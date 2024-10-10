@@ -5,7 +5,7 @@ import { useSpring, a } from '@react-spring/three';
 const ButtonCylinder = () => {
     const meshRef = useRef();
     const [props, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, -9, 2], config: { mass: 1, tension: 170, friction: 26 } }));
-    const powerSymbolTexture = useTexture('src/components/power-symbol.png'); // Asegúrate de que la ruta a la imagen sea correcta
+    const powerSymbolTexture = useTexture('/textures/button/power-symbol.png'); // Asegúrate de que la ruta a la imagen sea correcta
 
     const handlePointerDown = () => {
         set({ scale: [1, 0.1, 1] });

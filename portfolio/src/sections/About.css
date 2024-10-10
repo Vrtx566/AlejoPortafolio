@@ -1,0 +1,80 @@
+/* animacion estatica de la tarjeta */
+/*
+#card {
+    position: relative;
+}
+
+#card::after, #card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(transparent, transparent);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 60px;
+    border-radius: 0.5rem;
+    opacity: 0;
+}
+
+#card::before {
+    filter: blur(1.5rem);
+}
+
+#card:hover::after, #card:hover::before {
+    opacity: 0.7;
+    background-image: conic-gradient(#6BCAB3, #6BCAB3);
+}
+*/
+
+
+
+/* Animacion de giro de la tarjeta */
+
+
+#card {
+    position: relative;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#card::after, #card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),transparent, #6BCAB3);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 60px;
+    border-radius: 0.5rem;
+    opacity: 0;
+}
+
+#card::before {
+    filter: blur(1.5rem);
+
+}
+
+#card:hover::after, #card:hover::before {
+    opacity: 0.7;
+    animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
