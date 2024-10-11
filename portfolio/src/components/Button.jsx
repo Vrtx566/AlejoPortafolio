@@ -1,24 +1,21 @@
 import { Cylinder, Plane, useTexture } from "@react-three/drei";
 import React, { useRef } from "react";
 import { useSpring, a } from '@react-spring/three';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonCylinder = () => {
     const meshRef = useRef();
     const [props, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, -9, 2], config: { mass: 1, tension: 170, friction: 26 } }));
     const powerSymbolTexture = useTexture('/textures/button/power-symbol.png'); // Asegúrate de que la ruta a la imagen sea correcta
+    const navigate = useNavigate();
 
     const handlePointerDown = () => {
         set({ scale: [1, 0.1, 1] });
         setTimeout(() => {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+            navigate('/about');
             set({ scale: [1, 1, 1]});
         }, 1000); //duracion de la animacion
-
-
     };
-
-
-
 
     return (
         <a.mesh ref={meshRef} scale={props.scale} position={props.position} onPointerDown={handlePointerDown} >

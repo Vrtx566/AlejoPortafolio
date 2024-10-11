@@ -30,7 +30,6 @@
 */
 
 
-
 /* Animacion de giro de la tarjeta */
 
 
@@ -49,7 +48,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle),transparent, #6BCAB3);
+    background-image: conic-gradient(from var(--angle), transparent, #6BCAB3, transparent, #6BCAB3);
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -78,3 +77,12 @@
     }
 }
 
+
+.hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+}

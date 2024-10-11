@@ -1,7 +1,9 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import Globe from 'react-globe.gl';
 import Button2 from '../components/Button2.jsx';
 import './About.css';
+import {Canvas} from "@react-three/fiber";
+import {Stars} from "@react-three/drei";
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
 
@@ -14,9 +16,20 @@ const About = () => {
         }, 2000);
     };
 
+
     return (
+
+
+
         <section className="c-space my-20" id="about">
-            <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
+            <div className="absolute top-0 left-0 w-full h-full hidden xl:block">
+            <Canvas style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
+                <ambientLight intensity={0.5}/>
+                <spotLight position={[10, 10, 10]} angle={0.15}/>
+                <Stars count={5000}/>
+            </Canvas>
+            </div>
+            <div className="grid xl:grid-cols-3 xl:grid-rows-6 xl:mx-32 md:grid-cols-2 grid-cols-1 gap-5  h-full">
                 <div id="card" className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
                         <img src="/assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain"/>
@@ -86,18 +99,18 @@ const About = () => {
                 </div>
 
                 <div id="card" className="xl:col-span-1 xl:row-span-2">
-                    <div className="grid-container" >
+                    <div className="grid-container items-center" >
                         <img
                             src="/assets/grid4.png"
                             alt="grid-4"
-                            className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
+                            className="w-full xl:flex xl:w-[300px] md:w-[300px] md:h-[130px] sm:h-[276px] h-fit object-cover sm:object-top"
                         />
 
                         <div className="space-y-2">
                             <p className="grid-subtext text-center">Contact me</p>
                             <div className="copy-container" onClick={handleCopy}>
                                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy"/>
-                                <p className="lg:text-xl md:text-l font-medium text-gray_gradient text-white">jose.gomez.arenas.jaga@gmail.com</p>
+                                <p className="lg:text-2xs md:text-3xs font-medium text-gray_gradient text-white">jose.gomez.arenas.jaga@gmail.com</p>
                             </div>
                         </div>
                     </div>

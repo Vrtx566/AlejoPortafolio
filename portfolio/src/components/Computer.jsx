@@ -7,7 +7,7 @@ Title: Old Computers
 */
 
 import React, { useRef } from 'react'
-import {Sparkles, useGLTF} from '@react-three/drei'
+import { useGLTF} from '@react-three/drei'
 
 const OldComputers = (props) =>{
     const { nodes, materials } = useGLTF('/models/computer/computer.gltf')
