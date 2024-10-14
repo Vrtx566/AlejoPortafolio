@@ -59,12 +59,12 @@ const About = () => {
 
                 <div id="card" className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img src="/assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain"/>
+                        <img src="/assets/PIcons.png" alt="grid-2" className="w-full sm:h-[200px] h-fit object-contain"/>
 
                         <div>
-                            <p className="grid-headtext">System engeneer</p>
+                            <p className="grid-headtext">System engeneer student</p>
                             <p className="grid-subtext">
-                                I'm a system engineer, I have experience with Python, Java, Javascript, React, Node.js,
+                                I'm a system engineer student,i'm doing my career in EIA university, I have experience with Python, Java, Javascript, React, Node.js,
                                 MongoDB, SQL, Docker, Git, among others.
                             </p>
                         </div>

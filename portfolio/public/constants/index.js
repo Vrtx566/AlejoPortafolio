@@ -58,39 +58,24 @@ export const clientReviews = [
 
 export const myProjects = [
     {
-        title: 'Podcastr - AI Podcast Platform',
-        desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+        title: 'QuickSurvival - Minecraft Plugin',
+        desc: 'Quick Survival is a cutting-edge plugin designed to optimize the survival experience in Minecraft. It provides players with essential features like waypoint management, interactive custom inventories, and real-time effects such as fully functional beacon activation, enhancing gameplay and immersion.',
         subdesc:
-            'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-        href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
+            'Built using Java and the Bukkit API, Quick Survival is crafted for performance and flexibility. These technologies ensure that the plugin delivers a smooth, dynamic experience, adaptable for both casual players and experienced veterans of the game.',
+        href: 'https://github.com/Gersh0/QuickSurvival.git',
         texture: '/textures/project/project1.mp4',
-        logo: '/assets/project-logo1.png',
+        logo: '/assets/QSLogo.png',
         logoStyle: {
-            backgroundColor: '#2A1816',
-            border: '0.2px solid #36201D',
-            boxShadow: '0px 0px 60px 0px #AA3C304D',
+            backgroundColor: '#2AA567',
+            border: '0.2px solid #63B090',
+            boxShadow: '0px 0px 60px 0px #63B090',
         },
         spotlight: '/assets/spotlight1.png',
         tags: [
             {
                 id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
-            },
-            {
-                id: 3,
-                name: 'TypeScript',
-                path: '/assets/typescript.png',
-            },
-            {
-                id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
+                name: 'java.',
+                path: '/assets/java.svg',
             },
         ],
     },
