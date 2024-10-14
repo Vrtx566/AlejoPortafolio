@@ -77,7 +77,7 @@ const Proyects = () => {
                         <ambientLight intensity={Math.PI / 2}/>
                         <directionalLight position={[10, 10, 5]}/>
                         <Center>
-                            <Suspense fallback={CanvasLoader}>
+                            <Suspense fallback={<CanvasLoader/>}>
                                 <group scale={2} position={[0, -2.5, -0.5]} rotation={[0.1, 0, 0]}>
                                     <DemoComputer texture={currentProject.texture} />
                                 </group>

@@ -7,6 +7,7 @@ import {OrbitControls, Stars} from "@react-three/drei";
 import canvasLoader from "../components/CanvasLoader.jsx";
 import Developer from "../components/Developer.jsx";
 import {Leva, useControls} from "leva";
+import CanvasLoader from "../components/CanvasLoader.jsx";
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
 
@@ -39,8 +40,8 @@ const About = () => {
                             <ambientLight intensity={7}/>
                             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1}/>
                             <directionalLight position={[10, 10, 10]} intensity={1}/>
-                            <OrbitControls enableZoom={true} maxPolarAngle={Math.PI / 2}/>
-                            <Suspense fallback={canvasLoader}>
+                            <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2}/>
+                            <Suspense fallback={<CanvasLoader/>}>
                                 <Developer position-y={-7} rotation={[0.1,0,0]} scale={5}/>
 
                             </Suspense>
