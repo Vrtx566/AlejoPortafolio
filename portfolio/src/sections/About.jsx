@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {Suspense, useState} from 'react';
 import Globe from 'react-globe.gl';
 import Button2 from '../components/Button2.jsx';
 import './About.css';
 import {Canvas} from "@react-three/fiber";
-import {Stars} from "@react-three/drei";
+import {OrbitControls, Stars} from "@react-three/drei";
+import canvasLoader from "../components/CanvasLoader.jsx";
+import Developer from "../components/Developer.jsx";
+import {Leva, useControls} from "leva";
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
 
@@ -20,19 +23,28 @@ const About = () => {
     return (
 
 
-
         <section className="c-space my-20" id="about">
-            <div className="absolute top-0 left-0 w-full h-full hidden xl:block">
-            <Canvas style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
-                <ambientLight intensity={0.5}/>
-                <spotLight position={[10, 10, 10]} angle={0.15}/>
-                <Stars count={5000}/>
-            </Canvas>
+            <div className="absolute top-0 left-0 w-full h-full invisible xl:visible">
+                <Canvas style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
+                    <Stars count={5000}/>
+                    <ambientLight intensity={0.5}/>
+                    <spotLight position={[10, 10, 10]} angle={0.15}/>
+                </Canvas>
             </div>
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 xl:mx-32 md:grid-cols-2 grid-cols-1 gap-5  h-full">
                 <div id="card" className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img src="/assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain"/>
+
+                        <Canvas>
+                            <ambientLight intensity={7}/>
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1}/>
+                            <directionalLight position={[10, 10, 10]} intensity={1}/>
+                            <OrbitControls enableZoom={true} maxPolarAngle={Math.PI / 2}/>
+                            <Suspense fallback={canvasLoader}>
+                                <Developer position-y={-7} rotation={[0.1,0,0]} scale={5}/>
+
+                            </Suspense>
+                        </Canvas>
 
                         <div>
                             <p className="grid-headtext">Hi, I’m Alejandro</p>
@@ -59,7 +71,7 @@ const About = () => {
                 </div>
 
                 <div id="card" className="col-span-1 xl:row-span-4">
-                    <div  className="grid-container">
+                    <div className="grid-container">
                         <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
                             <Globe
                                 height={326}
@@ -99,7 +111,7 @@ const About = () => {
                 </div>
 
                 <div id="card" className="xl:col-span-1 xl:row-span-2">
-                    <div className="grid-container items-center" >
+                    <div className="grid-container items-center">
                         <img
                             src="/assets/grid4.png"
                             alt="grid-4"
