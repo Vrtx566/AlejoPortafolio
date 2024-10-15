@@ -1,5 +1,7 @@
 import emailjs from '@emailjs/browser';
-import {useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
+import {Stars} from "@react-three/drei";
+import {Canvas} from "@react-three/fiber";
 
 
 const Contact = () => {
@@ -47,7 +49,11 @@ const Contact = () => {
             {alert.show && <Alert {...alert} />}
 
             <div className="relative min-h-screen flex items-center justify-center flex-col">
-                <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen " />
+                <Canvas style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
+                    <Stars count={5000}/>
+                    <ambientLight intensity={0.5}/>
+                    <spotLight position={[10, 10, 10]} angle={0.15}/>
+                </Canvas>
 
                 <div className="contact-container p-32">
                     <h3 className="head-text">Let's talk</h3>

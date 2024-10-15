@@ -11,14 +11,22 @@ const Proyects = () => {
 
     const currentProject = myProjects[selectedProjectIndex];
 
+    const [isScaled, setIsScaled] = useState(false); // Nuevo estado para rastrear si el DemoComputer está redimensionado
     const handleNavigation = (direction) => {
         setSelectedProjectIndex((prevIndex) => {
             if (direction === 'previous') {
+                setIsScaled(false);
                 return prevIndex === 0 ? projectCount - 1 : prevIndex - 1;
             } else {
+                setIsScaled(false);
                 return prevIndex === projectCount - 1 ? 0 : prevIndex + 1;
             }
         });
+    };
+
+
+    const handleScale = () => {
+        setIsScaled(prevIsScaled => !prevIsScaled); // Cambia el estado de isScaled cuando se hace clic en el botón
     };
 
     return (
@@ -72,14 +80,23 @@ const Proyects = () => {
                     </div>
                 </div>
 
-                <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
-                    <Canvas>
+
+                <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative">
+                    <div className="h-[25px] w-[25px] absolute left-0 right-0  z-10 rounded m-2.5 backdrop-blur-md bg-black">
+                        <button onClick={handleScale}>
+                            <img src={isScaled ? "/assets/minimizeIcon.png" : "/assets/expandIcon.png"} alt="expand"
+                                 className="w-25 h-25  " style={{fill: 'white'}}/>
+                        </button>
+                    </div>
+
+                    <Canvas className="z-0">
                         <ambientLight intensity={Math.PI / 2}/>
                         <directionalLight position={[10, 10, 5]}/>
                         <Center>
                             <Suspense fallback={<CanvasLoader/>}>
-                                <group scale={2} position={[0, -2.5, -0.5]} rotation={[0.1, 0, 0]}>
-                                    <DemoComputer texture={currentProject.texture} />
+                                <group scale={isScaled ? 3.5 : 2} position={isScaled ? [-0.5, -6.5, 0] : [0, -3, 0]}
+                                       rotation={[0, -0.1, 0]}>
+                                    <DemoComputer texture={currentProject.texture}/>
                                 </group>
                             </Suspense>
                         </Center>
@@ -87,8 +104,6 @@ const Proyects = () => {
                         <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
                     </Canvas>
                 </div>
-
-
             </div>
         </section>
     )

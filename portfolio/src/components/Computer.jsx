@@ -6,11 +6,12 @@ Source: https://sketchfab.com/3d-models/old-computers-7bb6e720499a467b8e0427451d
 Title: Old Computers
 */
 
-import React, { useRef } from 'react'
+import React from 'react'
 import { useGLTF} from '@react-three/drei'
 
 const OldComputers = (props) =>{
     const { nodes, materials } = useGLTF('/models/computer/computer.gltf')
+
     return (
         <group {...props} dispose={null}>
             <group position={[0.27, 1.529, -2.613]}>

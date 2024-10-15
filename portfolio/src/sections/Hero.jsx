@@ -4,29 +4,28 @@ import {PerspectiveCamera, SpotLight, Stars} from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader.jsx";
 //import {Leva, useControls} from "leva";
 import {useMediaQuery} from "react-responsive";
-import {calculateSizes} from "../../public/constants/index.js";
 import OldComputers from "../components/Computer.jsx";
 import ButtonCylinder from "../components/Button.jsx";
 import HeroCamera from "../components/HeroCamera.jsx";
 
 
+
 const Hero = () => {
 
     const isMobile = useMediaQuery({maxWidth: 768})
-    const isTablet = useMediaQuery({maxWidth: 1024, minWidth: 768})
 
-    const size = calculateSizes(isMobile, isTablet)
 
 
     return (
         <section className="min-h-screen w-full flex flex-col relative " id="about">
-            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10">
+            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-10c-space gap-3 z-10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
                 <p className="sm:text-3xl text-2xl
                 font-medium text-white text-center font-generalsans">Hi, I am Alejandro
                     <span className="waving-hand">🖐️</span>
                 </p>
 
                 <p className="hero_tag text-gray_gradient ">I'm a system engineer</p>
+
             </div>
 
             <div className="w-full h-full absolute inset-0"></div>
@@ -45,6 +44,8 @@ const Hero = () => {
                         />
 
                         <ButtonCylinder/>
+
+
 
                         <SpotLight
                             position={[0, -12, 2]}

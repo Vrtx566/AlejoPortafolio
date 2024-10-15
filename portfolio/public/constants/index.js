@@ -2,7 +2,7 @@ export const navLinks = [
     {
         id: 1,
         name: 'Home',
-        href: '#home',
+        href: '#about',
     },
     {
         id: 2,
@@ -66,7 +66,7 @@ export const myProjects = [
         texture: '/textures/project/project1.mp4',
         logo: '/assets/QSLogo.png',
         logoStyle: {
-            backgroundColor: '#2AA567',
+            backgroundColor: '#207552',
             border: '0.2px solid #63B090',
             boxShadow: '0px 0px 60px 0px #63B090',
         },
