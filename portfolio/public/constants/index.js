@@ -80,11 +80,12 @@ export const myProjects = [
         ],
     },
     {
-        title: 'proyecto 2',
-        desc: 'texto',
+        title: 'Typescript Compiler',
+        desc: 'this compiler have the capacity to make basic operations like sum, subtraction, multiplication, division, and also have the capacity to make a simple print of the result of the operations.',
         subdesc:
-            'texto',
-        href: '',
+            'This project was made using typescript, and inside the project we made a unique language that is used to make the operations.\n'
+        +'\n ',
+        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         texture: '/textures/project/project5.mp4',
         logo: '/assets/project-logo5.png',
         logoStyle: {
@@ -96,23 +97,8 @@ export const myProjects = [
         tags: [
             {
                 id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
-            },
-            {
-                id: 3,
-                name: 'TypeScript',
+                name: 'typescript',
                 path: '/assets/typescript.png',
-            },
-            {
-                id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
             },
         ],
     },
