@@ -10,9 +10,11 @@ import {Leva, useControls} from "leva";
 import CanvasLoader from "../components/CanvasLoader.jsx";
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
+    const [animationName, setAnimationName] = useState('salute');
 
     const handleCopy = () => {
         navigator.clipboard.writeText(' jose.gomez.arenas.jaga@gmail.com');
+
         setHasCopied(true);
 
         setTimeout(() => {
@@ -34,15 +36,17 @@ const About = () => {
             </div>
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 xl:mx-32 md:grid-cols-2 grid-cols-1 gap-5  h-full">
                 <div id="card" className="col-span-1 xl:row-span-3">
-                    <div className="grid-container">
+                    <div className="grid-container"
+                         onPointerOver={()=> setAnimationName("dance")}
+                        onPointerOut={()=> setAnimationName("salute")}
+                    >
 
                         <Canvas>
                             <ambientLight intensity={7}/>
                             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1}/>
                             <directionalLight position={[10, 10, 10]} intensity={1}/>
-                            <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2}/>
                             <Suspense fallback={<CanvasLoader/>}>
-                                <Developer position-y={-7} rotation={[0.1,0,0]} scale={5}/>
+                                <Developer position-y={-7} rotation={[0.1,0,0]} scale={5} animationName={animationName}/>
 
                             </Suspense>
                         </Canvas>
@@ -50,8 +54,7 @@ const About = () => {
                         <div>
                             <p className="grid-headtext">Hi, I’m Alejandro</p>
                             <p className="grid-subtext">
-                                Actually i dont have any experience, but im ready to embrace every challenge that comes
-                                my way.
+                                Actually i dont have any job experience, but as a student i have been working on my skills to be able to work in the industry.
                             </p>
                         </div>
                     </div>
@@ -104,8 +107,7 @@ const About = () => {
                             <p className="grid-headtext">My Passion for embracing new challenges
                             </p>
                             <p className="grid-subtext">
-                                i'm ready to embrace every challenge that comes my way, i'm a fast learner and i'm
-                                always looking for new ways to improve my skills.
+                                I'm always looking for new ways to improve my skills and learn new technologies, I'm passionate about creating new things and solving problems.
                             </p>
                         </div>
                     </div>
@@ -120,8 +122,8 @@ const About = () => {
                         />
 
                         <div className="space-y-2">
-                            <p className="grid-subtext text-center">Contact me</p>
-                            <div className="copy-container" onClick={handleCopy}>
+                            <p className="grid-subtext text-center"  >Contact me</p>
+                            <div className="copy-container" onClick={handleCopy }>
                                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy"/>
                                 <p className="lg:text-2xs md:text-3xs font-medium text-gray_gradient text-white">jose.gomez.arenas.jaga@gmail.com</p>
                             </div>

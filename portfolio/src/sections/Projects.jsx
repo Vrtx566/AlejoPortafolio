@@ -6,7 +6,7 @@ import CanvasLoader from "../components/CanvasLoader.jsx";
 import DemoComputer from "../components/DemoComputer.jsx";
 
 const projectCount = myProjects.length;
-const Proyects = () => {
+const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
     const currentProject = myProjects[selectedProjectIndex];
@@ -101,11 +101,10 @@ const Proyects = () => {
                             </Suspense>
                         </Center>
 
-                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
                     </Canvas>
                 </div>
             </div>
         </section>
     )
 }
-export default Proyects
+export default Projects
