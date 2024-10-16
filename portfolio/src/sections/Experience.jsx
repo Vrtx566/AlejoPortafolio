@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { workExperiences } from '../../public/constants/index.js';
 import CanvasLoader from "../components/CanvasLoader.jsx";
 import Cube from "../components/Cube.jsx";
+import Cat from "../components/Cat.jsx";
 
 const WorkExperience = () => {
 
@@ -15,11 +16,14 @@ const WorkExperience = () => {
                 <div className="work-container">
                     <div className="work-canvas">
                         <Canvas>
-                            <ambientLight intensity={0.5} />
-                            <spotLight position={[10, 10, 10]} angle={0.15} />
                             <Suspense fallback={<CanvasLoader/>}>
-                            <Cube/>
+                                <Cat
+                                    scale={0.2}
+                                    position={[0, -1.7, 0]}
+                                />
                             </Suspense>
+                            <ambientLight intensity={1}/>
+                            <directionalLight position={[10, 10, 10]} intensity={0.5}/>
                         </Canvas>
                     </div>
 
