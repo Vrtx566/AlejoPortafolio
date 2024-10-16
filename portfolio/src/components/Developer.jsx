@@ -10,10 +10,12 @@ const Developer = ({animationName = 'salute', ...props}) => {
     const group = useRef()
     const {animations: idleAnimation} = useFBX('/models/animations/salute.fbx')
     const {animations: danceAnimation} = useFBX('/models/animations/victory.fbx')
+    const {animations: saluteAnimation} = useFBX('/models/animations/idle.fbx')
     idleAnimation[0].name = 'salute'
     danceAnimation[0].name = 'dance'
+    saluteAnimation[0].name ='idle'
 
-    const {actions} = useAnimations([idleAnimation[0], danceAnimation[0]], group);
+    const {actions} = useAnimations([idleAnimation[0], danceAnimation[0],idleAnimation[0]], group);
 
     useEffect(() => {
         actions[animationName].reset().fadeIn(0.5).play();

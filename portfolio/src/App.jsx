@@ -6,6 +6,7 @@ import About from "./sections/About.jsx"
 import Projects from "./sections/Projects.jsx"
 import Contact from "./sections/Contact.jsx";
 import Footer from "./sections/Footer.jsx";
+import Experience from "./sections/Experience.jsx";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                         <Navbar/>
                         <About/>
                         <Projects/>
+                        <Experience/>
                         <Contact/>
                         <Footer/>
                     </>
